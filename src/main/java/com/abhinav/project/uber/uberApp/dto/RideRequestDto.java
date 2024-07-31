@@ -2,23 +2,29 @@ package com.abhinav.project.uber.uberApp.dto;
 
 import com.abhinav.project.uber.uberApp.entities.enums.PaymentMethod;
 import com.abhinav.project.uber.uberApp.entities.enums.RideRequestStatus;
-import com.abhinav.project.uber.uberApp.entities.enums.RideStatus;
-import org.locationtech.jts.geom.Point;
-
-import java.time.LocalDate;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class RideRequestDto {
 
     private Long id;
-    private Point pickupLocation;
 
-    private Point dropOffLocation;
+    private PointDto pickupLocation;
+
+    private PointDto dropOffLocation;
+
+    private PaymentMethod paymentMethod;
 
     private LocalDateTime requestedTime;
 
     private RiderDto rider;
-    private PaymentMethod paymentMethod;
 
     private RideRequestStatus rideRequestStatus;
+
+    private Double fare;
 }
